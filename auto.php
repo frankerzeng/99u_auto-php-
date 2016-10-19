@@ -3,17 +3,17 @@ require_once "im_uc.php";
 $user_id = '741007';
 
 // 送花列表
-$conn = mysql_connect('localhost', 'root', 'root') or die("error connecting");
-mysql_select_db('im');
+$conn = mysqli_connect('localhost', 'root', 'root') or die("error connecting");
+mysqli_select_db($conn, 'im');
 $sql = "select * from send WHERE status =1";
-$result = mysql_query($sql, $conn);
+$result = mysqli_query($conn, $sql);
 $return = [];
-while ($row = mysql_fetch_assoc($result)) {
+while ($row = mysqli_fetch_assoc($result)) {
     $return[] = $row;
 }
 
 //登陆
-im_uc::$_mac_token = im_uc::token($user_id, "密码");
+im_uc::$_mac_token = im_uc::token($user_id, "ZFLzfl123");
 
 // 签到
 $ret = im_uc::sign_in($user_id);
