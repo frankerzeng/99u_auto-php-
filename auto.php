@@ -3,6 +3,7 @@ require_once "im_uc.php";
 $user_id = '741007';
 
 // 送花列表
+// 服务器localhost不识别，换成127.0.0.1
 $conn = mysqli_connect('127.0.0.1', 'root', 'root') or die("error connecting");
 mysqli_select_db($conn, 'im');
 $sql = "select * from send WHERE status =1";
@@ -11,8 +12,6 @@ $return = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $return[] = $row;
 }
-print_r($return);
-return;
 // PDO
 //$pdo = new PDO('mysql:host=127.0.0.1;dbname=im;port=3306', 'root', 'root');
 //$pdo->exec('set names utf8');
