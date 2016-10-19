@@ -4,7 +4,7 @@ $user_id = '741007';
 
 // 送花列表
 // 服务器localhost不识别，换成127.0.0.1
-$conn = mysqli_connect('127.0.0.1', 'root', 'root') or die("error connecting");
+$conn = mysqli_connect('127.0.0.1', '数据库用户名', '数据库密码') or die("error connecting");
 mysqli_select_db($conn, 'im');
 $sql = "select * from send WHERE status =1";
 $result = mysqli_query($conn, $sql);
@@ -21,7 +21,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 //$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 //登陆
-im_uc::$_mac_token = im_uc::token($user_id, "ZFLzfl123");
+im_uc::$_mac_token = im_uc::token($user_id, "99u密码");
 
 // 签到
 $ret = im_uc::sign_in($user_id);
