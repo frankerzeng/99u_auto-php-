@@ -3,7 +3,7 @@ require_once "im_uc.php";
 $user_id = '741007';
 
 // 送花列表
-$conn = mysqli_connect('localhost', 'root', 'root') or die("error connecting");
+$conn = mysqli_connect('127.0.0.1', 'root', 'root') or die("error connecting");
 mysqli_select_db($conn, 'im');
 $sql = "select * from send WHERE status =1";
 $result = mysqli_query($conn, $sql);
@@ -11,6 +11,15 @@ $return = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $return[] = $row;
 }
+print_r($return);
+return;
+// PDO
+//$pdo = new PDO('mysql:host=127.0.0.1;dbname=im;port=3306', 'root', 'root');
+//$pdo->exec('set names utf8');
+//
+//$stmt = $pdo->prepare("select * from send");
+//$stmt->execute();
+//$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 //登陆
 im_uc::$_mac_token = im_uc::token($user_id, "ZFLzfl123");
