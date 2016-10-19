@@ -13,7 +13,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 
 //登陆
-im_uc::$_mac_token = im_uc::token($user_id, "ZFLzfl123");
+im_uc::$_mac_token = im_uc::token($user_id, "密码");
 
 // 签到
 $ret = im_uc::sign_in($user_id);
